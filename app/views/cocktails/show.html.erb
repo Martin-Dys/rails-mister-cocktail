@@ -1,0 +1,21 @@
+ <div class="banner-small" style="background-image: url('https://images.unsplash.com/photo-1461823385004-d7660947a7c0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=82c2b0959f392571810e512b4a73d625&auto=format&fit=crop&w=1650&q=80')">
+<h2> <%= @cocktail.name %> </h2>
+</div>
+
+<div class="container">
+  <div class="card">
+    <ul>
+        <div class="card-description">
+      <% @cocktail.doses.each do |dose| %>
+        <h3> <%=dose.description %> <%= Ingredient.find(dose.ingredient_id).name  %></h3>
+      <% end %>
+        </div>
+    </ul>
+  </div>
+</div>
+
+<p><%= link_to 'Add an ingredient', new_cocktail_dose_path(@cocktail) %> </p>
+
+<p><%= link_to 'Back', cocktails_path %> </p>
+
+
